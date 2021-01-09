@@ -3,5 +3,5 @@
 USER_NAME=${USER_NAME:-linuxserver.io}
 SSHD_PORT=${SSHD_PORT:-2222}
 
-exec \
-        s6-setuidgid ${USER_NAME} /usr/sbin/sshd -D -e -p ${SSHD_PORT} -E /config/logs/openssh/openssh.log
+exec 2>&1 \
+        s6-setuidgid ${USER_NAME} /usr/sbin/sshd -D -e -p ${SSHD_PORT}
